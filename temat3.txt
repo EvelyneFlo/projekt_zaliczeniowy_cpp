@@ -1,0 +1,54 @@
+Projekt listy zakupów składa się z dwóch klas: Product oraz Shopping_list.
+W klasie Product przetrzymujemy prywatne informacje: nazwa produktu oraz ilość produktów; oraz publiczne funkcje: konstruktor, konstruktor kopiujący, 
+gettery i settery oraz funkcja drukująca dane o produkcie.
+W klasie Shopping_List prywatnymi danymi są: nazwa listy, adres tablicy wskaźników na produkty oraz ilość elementów listy.
+Publicznymi funkcjami są natomiast:konstruktor, konstruktor kopiujący, gettery i settery, oraz funkcje: 
+dodanie produktu do listy, usunięcie elementu do listy, wypisanie elementów z listy.
+Funkcja dodająca element: wczytuje nazwę i ilość elementów wybrane przez użytkownika, następnie tworzy obiekt klasy produkt 
+i przypisuje go do listy zakupów.
+Funkcja wypisująca elementy: wypisuje produkty z listy.
+Funkcja usuwająca element z wybranej pozycji: od indexu produktu, który ma być usunięty, przesuwamy dane o produkcie (nazwę i ilość) o jedno w lewo, 
+następnie usuwamy dane z ostatniego elementu.
+
+Dodatkowo wykorzystujemy funkcje wczytujące dane funkcją getline() i zwracające je jako int bądź string.
+
+W programie głównym posługujemy się czterema kolejnymi funkcjami:
+- dodająca listę - użytkownik wybiera nazwę listy, tworzy obiekt klasy Shopping_List i funkcja pushback() dodaje na pierwsze wolne miejsce w wektorze.
+- edytująca listę - składa się z czynności:
+	- zmiana nazwy listy - setterem zmienia nazwę wybranej listy,
+	- usuwająca wybrany produkt z listy - wywołuje funkcję usuwającą element z wybranej pozycji z listy
+	- zmieniająca nazwę produktu - za pomocą settera klasy Product
+	- zmieniająca ilość produktów - za pomocą settera klasy Product
+- usuwająca listę - po wybraniu listy następuje usuwanie produktów z listy a następnie usunięcie listy
+- wypisująca wszstkie listy - pełni funkcję także sprawdzającej, czy jakakolwiek lista istnieje (czy możemy wykonywać na niej wybrane czynności)
+
+------------------------------------------------------------------------------------------
+W etapie drugim projektu, oprócz drobnych poprawek po etapie 1, zostały dołożone trzy klasy zawarte w module "ProductTypes": klasa produktów na wagę, na ilość i na objętość.
+Funkcja dodająca elementy została zmieniona tak, aby rozróżniała jakiego typu produkt jest dodawany do listy. Zakładamy, że dany produkt może należeć 
+tylko do jednego typu produktów (np. mleko zawsze będzie produktem wyrażanym w objętości).
+
+W module głównym zostały utworzone funkcje:
+
+move_product - przenosi element z jednej listy do drugiej
+
+compare_strings - porównuje dwa stringi i zwraca 1 lub 0 w zależnośći od rezultatu porównania
+
+find_product - wyszukuje podaną nazwę produktu w wybranej liście, jeżeli znajdzie produkt
+to zwraca pozycję na której się znajduje, w przeciwnym razie zwraca -1
+
+merge_lists - inteligentnie scala listy - na początku sprawdza czy takie zdarzenie może zajść
+czyli czy ilość elementów w nowej liście nie przekroczy 10. Jeżeli tak to informuje, że nie można scalić list i przerywa działanie.
+Jeżeli nie, to do listy 1 dopisywane są produkty z listy drugiej, które nie występują w liście 1. Jeżeli produkt występuje na dwóch listach,
+Edytowana jest ilość produktów elementu z listy 1.
+
+----------------------------------------------------------------------------------------------
+Do etapu trzeciego dopisany został szablon funkcji wczytującej pozycję w danym kontenerze i sprawdzający, czy
+podana wartość jest  prawidłowa, oraz szablon funkcji wypisującej dane elementy.
+Funkcje: write_all_elements, add_elements oraz read_int obsługują wyjątki.
+Read-int - zwraca komunikat gdy podana wartość nie jest liczbą, wyjątek obsługiwany jest w tej samej funkcji, ze względu na optymalność kodu
+add-elements - gdy lista jest pełna, pozwala nam wybrać inną listę, aby móc dodać produkt
+write-all-elements - wyświetla komunikat, gdy nie posiadamy żadnej listy
+
+
+Ewelina Florczak
+ 
